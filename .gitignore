@@ -33,3 +33,4 @@
 
 #original
 bin/*
+.DS_Store
