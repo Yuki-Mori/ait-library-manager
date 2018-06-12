@@ -1,4 +1,4 @@
-CXXOBJ := main.o
+CXXOBJ := main.o Parser.o
 CXX := g++
 CXXFLAGS := -g -Wall -std=c++14
 TARGET := aitl 
@@ -9,6 +9,8 @@ INCLUDE := -I$(MAKEFILE_DIR)../include/
 
 %.o: src/%.cpp
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
+
+%.o: include/%.hpp
 
 main: $(CXXOBJ)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(CXXOBJ) $(INCLUDE) && \
