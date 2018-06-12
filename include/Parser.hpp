@@ -10,6 +10,6 @@ namespace ait{
     public:
         Parser(std::string& command, std::vector<std::string>& args);
         Parser(void);
-        bool done(void);
+        int done(void);
     };
 }

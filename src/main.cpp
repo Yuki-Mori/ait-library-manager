@@ -3,38 +3,46 @@
 #include <vector>
 #include <getopt.h>
 
+#include "../include/Parser.hpp"
+
 using namespace std;
+using namespace ait;
+
+int version(void);
+int help(void);
 
 int main(int argc, char* argv[]){
     int opt;
-    
+
     opterr = 0;
     string option;
 
     while((opt = getopt(argc, argv, "v")) != -1){
         switch(opt) {
             case 'v':
-                option = string("Version");
+                return version();
                 break;
             default:
-                option = string("help");
+                return help();
                 break;
         }
     }
-
-//    for(i = optind; i < argc; i++){
-//        cout << "arg = " << argv[i] << ", " << i << endl;
-//    }
     string command = (optind < argc) ? string(argv[optind]) : "Not Found";
     vector<string> args(0);
     for(int i = optind + 1; i < argc; i++){
         args.push_back(string(argv[i]));
     }
-    cout << "command = " <<  command << endl;
-    cout << "args = ";
-    for(auto i = 0; i < args.size(); i++){
-        cout << args[i];
-    }
-    cout << endl;
+
+    Parser p(command, args);
+    return p.done();
+}
+
+int version(void){
+    cout << "1.0.0.0-alpha" << endl;
+    return 0;
+}
+
+int help(void){
+    cout << "usage: TODO " << endl;
     return 0;
 }
