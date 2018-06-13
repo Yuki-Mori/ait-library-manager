@@ -1,4 +1,4 @@
-CXXOBJ := main.o Parser.o
+CXXOBJ := main.o Parser.o Command.o Init.o
 CXX := g++
 CXXFLAGS := -g -Wall -std=c++14
 TARGET := aitl
