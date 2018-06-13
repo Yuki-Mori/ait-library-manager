@@ -3,6 +3,7 @@
 #include <vector>
 #include <getopt.h>
 
+#include "../include/def.h"
 #include "../include/Parser.hpp"
 
 using namespace std;

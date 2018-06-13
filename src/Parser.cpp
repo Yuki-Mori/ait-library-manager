@@ -1,7 +1,10 @@
 #include "Parser.hpp"
+#include "def.h"
 
 //*****debug****//
+#ifdef TEST
 #include <iostream>
+#endif
 //*****debud****//
 
 using namespace ait;
@@ -16,12 +19,14 @@ int Parser::done(void){
     /********************************************************************/
     /********************* Debug code started ***************************/
     /********************************************************************/
+    #ifdef TEST
     std::cout << "command = " <<  command << std::endl;
     std::cout << "args = ";
     for(auto i = 0; i < args.size(); i++){
         std::cout << args[i] << " ";
     }
     std::cout << std::endl;
+    #endif
     /********************************************************************/
     /*********************** Debug code ended ***************************/
     /********************************************************************/
