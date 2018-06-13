@@ -1,11 +1,7 @@
 #include "Init.hpp"
 #include "def.h"
 
-//*****debug****//
-#ifdef TEST
 #include <iostream>
-#endif
-//*****debud****//
 
 using namespace ait;
 using namespace std;
@@ -19,6 +15,8 @@ Init::~Init(void){
 int Init::done(std::vector<std::string>& args){
 	#ifdef TEST
 		cout << "Init class" << endl;
+	#else
+		cout << "Type 'hrp2' directory: " << endl;
 	#endif
 	return 0;
 }

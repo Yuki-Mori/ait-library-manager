@@ -13,7 +13,7 @@ using namespace std;
 
 Parser::Parser(string& command, vector<string>& args): command(command), args(args){
     //CommandInterface cm(new Command());
-    this->commands["command"] = CommandType(new Command());
+    this->commands["default"] = CommandType(new Command());
     this->commands["init"] = CommandType(new Init());
 }
 
@@ -30,8 +30,18 @@ int Parser::done(void){
         std::cout << args[i] << " ";
     }
     std::cout << std::endl;
-    this->commands["command"]->done(args);
+    this->commands["default"]->done(args);
     this->commands["init"]->done(args);
+
+    #else
+
+    auto itr=this->commands.find(command);
+    if(itr != this->commands.end()){
+        return itr->second->done(args);
+    }else{
+        return this->commands["default"]->notFoundMessage(command);
+    }
+
     #endif
     /********************************************************************/
     /*********************** Debug code ended ***************************/

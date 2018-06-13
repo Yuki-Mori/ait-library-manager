@@ -14,5 +14,6 @@ namespace ait{
 		virtual ~Command(void);
 		virtual Command& operator=(const Command& orig);
 		virtual int done(std::vector<std::string>& args);
+		int notFoundMessage(std::string& command_name);
 	};
 }
