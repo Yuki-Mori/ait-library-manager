@@ -1,3 +1,1 @@
-
-
 # ait-library-manager
